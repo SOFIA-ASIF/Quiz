@@ -1,6 +1,6 @@
 {
-  "name": "quiz",
-  "version": "1.0.0",
+  "name": "sofia_quiz",
+  "version": "1.0.1",
   "description": "quiz using OOP in typescript",
   "main": "index.js",
   "type": "module",
