@@ -1,10 +1,6 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const chalk_1 = __importDefault(require("chalk"));
-const readline_sync_1 = __importDefault(require("readline-sync"));
+#! /usr/bin/env node
+import chalk from 'chalk';
+import readlineSync from 'readline-sync';
 const questions = [
     { question: 'What is the capital of Australia?', choices: ['Sydney', 'Melbourne', 'Brisbane', 'Canberra'], correctAnswer: 3 },
     { question: 'Which planet is known as the Red Planet?', choices: ['Earth', 'Mars', 'Jupiter', 'Venus'], correctAnswer: 1 },
@@ -17,24 +13,24 @@ const questions = [
     { question: 'Who painted the ceiling of the Sistine Chapel?', choices: ['Leonardo da Vinci', 'Michelangelo', 'Raphael', 'Donatello'], correctAnswer: 1 },
     { question: 'Which country is known as the Land of the Rising Sun?', choices: ['China', 'Japan', 'Thailand', 'South Korea'], correctAnswer: 1 }
 ];
-console.log(chalk_1.default.gray("WELCOME TO THE QUIZ GAME"));
-console.log(chalk_1.default.green(`Instructions:
+console.log(chalk.gray("WELCOME TO THE QUIZ GAME"));
+console.log(chalk.green(`Instructions:
 1. You have to write the number of choice you want to answer
 2. Each question is of 1 mark
 3. You will get total marks at the end of the quiz`));
 let score = 0;
 questions.forEach((q, index) => {
-    console.log(chalk_1.default.yellow(`Q${index + 1}: ${q.question}`));
+    console.log(chalk.yellow(`Q${index + 1}: ${q.question}`));
     q.choices.forEach((choice, i) => {
-        console.log(chalk_1.default.cyan(`${i + 1}. ${choice}`));
+        console.log(chalk.cyan(`${i + 1}. ${choice}`));
     });
-    const answer = readline_sync_1.default.questionInt('Your answer: ') - 1;
+    const answer = readlineSync.questionInt('Your answer: ') - 1;
     if (answer === q.correctAnswer) {
-        console.log(chalk_1.default.green('Correct!\n'));
+        console.log(chalk.green('Correct!\n'));
         score++;
     }
     else {
-        console.log(chalk_1.default.red('Incorrect!\n'));
+        console.log(chalk.red('Incorrect!\n'));
     }
 });
-console.log(chalk_1.default.blue(`Quiz finished! Your score is: ${score}/${questions.length}`));
+console.log(chalk.blue(`Quiz finished! Your score is: ${score}/${questions.length}`));

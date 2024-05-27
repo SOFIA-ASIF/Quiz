@@ -1,3 +1,4 @@
+#! /usr/bin/env node
 import chalk from 'chalk';
 import readlineSync from 'readline-sync';
 const questions = [
